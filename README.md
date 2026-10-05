@@ -13,3 +13,8 @@
 **Vad hände:** Totalen räknade inte med första varans pris
 **Varför:** Total():s for-loop började med att i = 1 men första platsen i items listan är 0
 **Lösning:** Ändra i:s startvärde i for-loopen i Total() från 1 till 0
+
+## Fel 4: Programmet kraschade vid fel inmatning
+**Vad hände:** Skrev man något annat än en siffra kraschade programmet
+**Varför:** Programmet hade en int.parse för att ta emot användarens siffra men skriver man bokstäver eller andra tecken krashar programmet
+**Lösning:** Jag gjorde om alla int.parse till int.tryparse för att programmet skulle sluta krascha 

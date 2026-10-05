@@ -13,21 +13,35 @@ while (true)
     Console.WriteLine("5. Avsluta");
     Console.Write("Välj: ");
 
-    int choice = int.Parse(Console.ReadLine());
-
+    int choice;
+    if(int.TryParse(Console.ReadLine(), out choice))
+    {
     if (choice == 1)
     {
         Console.Write("Namn: ");
         string name = Console.ReadLine();
-        Console.Write("Pris: ");
-        int price = int.Parse(Console.ReadLine());
-        list.Add(new Item(name, price));
+        int price;
+        while (true)
+        {
+            Console.Write("Pris: ");
+            if (int.TryParse(Console.ReadLine(), out price))
+            {
+                list.Add(new Item(name, price));
+                break;
+            } else
+            {
+                Console.WriteLine("Ange ett giltigt pris");
+            }
+        }
     }
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        int number = int.Parse(Console.ReadLine());
+        int number;
+        if(int.TryParse(Console.ReadLine(), out number))
+        {
         list.RemoveAt(number);
+        }
     }
     else if (choice == 3)
     {
@@ -51,5 +65,9 @@ while (true)
     else if (choice == 5)
     {
         break;
+    }
+    } else
+    {
+        Console.WriteLine("Välj ett giltigt nummer");
     }
 }
