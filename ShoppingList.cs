@@ -81,9 +81,9 @@ class ShoppingList
     // Reads the file back into the list.
     public void Load()
     {
+        try{
         string text = File.ReadAllText(path);
         string[] lines = text.Split('\n');
-
         foreach (string line in lines)
         {
             if(line != null && line != "")
@@ -94,6 +94,11 @@ class ShoppingList
             {
                 continue;
             }
+        }
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("Ingen sparad lista hittades");
         }
     }
 }
