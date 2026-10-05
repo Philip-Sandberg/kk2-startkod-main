@@ -86,8 +86,14 @@ class ShoppingList
 
         foreach (string line in lines)
         {
+            if(line != null && line != "")
+            {
             string[] parts = line.Split(';');
             items.Add(new Item(parts[1], int.Parse(parts[0])));
+            } else
+            {
+                continue;
+            }
         }
     }
 }
