@@ -88,7 +88,7 @@ class ShoppingList
         {
             if(line != null && line != "")
             {
-            string[] parts = line.Split(';');
+            string[] parts = line.Trim().Split(';');
             items.Add(new Item(parts[1], int.Parse(parts[0])));
             } else
             {
