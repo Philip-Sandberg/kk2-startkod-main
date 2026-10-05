@@ -42,6 +42,10 @@ while (true)
         {
         list.RemoveAt(number);
         }
+        else
+        {
+            Console.WriteLine("Välj ett giltigt nummer");
+        }
     }
     else if (choice == 3)
     {

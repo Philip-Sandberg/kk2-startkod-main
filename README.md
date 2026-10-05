@@ -23,3 +23,8 @@
 **Vad hände:** Jag döpte om items.txt, körde programmet och det kraschade direkt med FileNotFoundException  
 **Varför:** Load() anropar File.ReadAllText(path) fast filen inte finns  
 **Lösning:** Lade in en try catch i Load() för att kunna köra programmet ändå fast med en lista utan några varor i  
+
+## Fel 6: Programmet kraschar när man tar bort en obefintlig vara
+**Vad hände:** programmet kraschade när man valde att ta bort en siffra utanför listan  
+**Varför:** Programmet försökte ta bort en vara som inte fanns  
+**Lösning:** Sätta ett intervall för vilka siffror som var okej att välja mellan och annars få felmeddelande
