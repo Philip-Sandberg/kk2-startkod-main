@@ -1,0 +1,5 @@
+15;Mjölk
+89;Ost
+5;banan
+19;Päron
+10;Skinka

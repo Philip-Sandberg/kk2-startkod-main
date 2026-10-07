@@ -28,3 +28,9 @@
 **Vad hände:** programmet kraschade när man valde att ta bort en siffra utanför listan  
 **Varför:** Programmet försökte ta bort en vara som inte fanns  
 **Lösning:** Sätta ett intervall för vilka siffror som var okej att välja mellan och annars få felmeddelande
+
+## Fel 7: Tom catch i Save
+**Vad hände:** Ifall listan skulle misslyckas att sparas så sa programmet ändå att listan var sparad  
+**Varför:** Catch i save() var tom och gav inget meddelande ifall try skulle misslyckas  
+**Lösning:** Lade till ett felmeddelande i catch och lade in "listan är sparad" i try så att den inte säger att listan är sparad ifall den inte är det  
+
