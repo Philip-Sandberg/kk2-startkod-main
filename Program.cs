@@ -19,20 +19,32 @@ while (true)
     if (choice == 1)
     {
         Console.Write("Namn: ");
-        string name = Console.ReadLine();
-        int price;
-        while (true)
-        {
-            Console.Write("Pris: ");
-            if (int.TryParse(Console.ReadLine(), out price))
+        try
             {
-                list.Add(new Item(name, price));
-                break;
-            } else
-            {
-                Console.WriteLine("Ange ett giltigt pris");
+                string name = Console.ReadLine();
+                int price;
+                while (true)
+                {
+                    Console.Write("Pris: ");
+                    if (int.TryParse(Console.ReadLine(), out price))
+                    {
+                        list.Add(new Item(name, price));
+                        break;
+                    } else
+                    {
+                        Console.WriteLine("Ange ett giltigt pris");
+                    }
+                }
             }
-        }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Varans pris måste vara ett positivt heltal");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
     }
     else if (choice == 2)
     {
