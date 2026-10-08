@@ -34,3 +34,8 @@
 **Varför:** Catch i save() var tom och gav inget meddelande ifall try skulle misslyckas  
 **Lösning:** Lade till ett felmeddelande i catch och lade in "listan är sparad" i try så att den inte säger att listan är sparad ifall den inte är det  
 
+# Designval
+**Val:** Jag valde att kasta InvalidOperationException  
+**Varför:** Det kändes som ett enkelt och logiskt val i och med att jag kastade ArgumentException och ArgumentOutOfRangeException tidigare och för att vi nyligen lärt oss om try catch så jag behöver träna på det  
+
+# Klassdiagram

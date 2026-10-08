@@ -36,6 +36,10 @@ while (true)
                     }
                 }
             }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             catch (ArgumentOutOfRangeException)
             {
                 Console.WriteLine("Varans pris måste vara ett positivt heltal");
@@ -82,8 +86,9 @@ while (true)
     {
         break;
     }
-    } else
+     else
     {
         Console.WriteLine("Välj ett giltigt nummer");
+    }
     }
 }

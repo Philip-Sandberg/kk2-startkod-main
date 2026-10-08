@@ -1,4 +1,6 @@
 // One item on the shopping list.
+using System.Numerics;
+
 class Item
 {
     public string Name { get; set; }
@@ -12,7 +14,7 @@ class Item
         }
         if (price <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(price), "Priset på varan får inte vara negativt");
+            throw new ArgumentOutOfRangeException(nameof(price), "Varans pris måste vara ett positivt heltal");
         }
         Name = name;
         Price = price;

@@ -3,6 +3,7 @@ class ShoppingList
 {
     private List<Item> items = new List<Item>();
     private string path;
+    private int priceLimit = 1000;
 
     public ShoppingList(string path)
     {
@@ -11,6 +12,10 @@ class ShoppingList
 
     public void Add(Item item)
     {
+        if (Total() + item.Price > priceLimit)
+        {
+            throw new InvalidOperationException($"Totalen får inte bli mer än {priceLimit} kr");
+        }
         items.Add(item);
     }
 
