@@ -87,6 +87,10 @@ class ShoppingList
         {
             Console.WriteLine("Det gick inte att spara listan");
         }
+        catch (IOException)
+        {
+            Console.WriteLine("Ingen sparad lista hittades");
+        }
     }
 
     // Reads the file back into the list.

@@ -1,4 +1,4 @@
-# Felrapport
+# Del 1 / Felrapport
 ## Fel 1: Krasch vid inläsning (IndexOutOfRangeException)
 **Vad hände:** Systemet kraschade direkt vid start med ett felmeddelande om IndexOutOfRangeException  
 **Varför:** Save() avslutar varje rad med radbrytning, även den sista. `Split('\n')` ger en tom sträng sist i arrayen. `Split(';')` ger en array med ett element, så parts[1] finns inte och kraschar därför programmet  
@@ -32,10 +32,40 @@
 ## Fel 7: Tom catch i Save
 **Vad hände:** Ifall listan skulle misslyckas att sparas så sa programmet ändå att listan var sparad  
 **Varför:** Catch i save() var tom och gav inget meddelande ifall try skulle misslyckas  
-**Lösning:** Lade till ett felmeddelande i catch och lade in "listan är sparad" i try så att den inte säger att listan är sparad ifall den inte är det  
+**Lösning:** Lade till ett felmeddelande i catch och lade in "listan är sparad" i try så att den inte säger att listan är sparad ifall den inte är det. lade till ett till undantag för catchen
 
 # Designval
 **Val:** Jag valde att kasta InvalidOperationException  
 **Varför:** Det kändes som ett enkelt och logiskt val i och med att jag kastade ArgumentException och ArgumentOutOfRangeException tidigare och för att vi nyligen lärt oss om try catch så jag behöver träna på det  
 
 # Klassdiagram
+
+```mermaid
+classDiagram
+    class Program {
+        Menyn och användarinmatning
+    }
+    class ShoppingList {
+        -items : List~Item~
+        -path : string
+        -priceLimit : int
+        +ShoppingList(path)
+        +Add(item) void
+        +RemoveAt(number) void
+        +Total() int
+        +Find(name) Item
+        +Print() void
+        +Save() void
+        +Load() void
+    }
+    class Item {
+        +Name : string
+        +Price : int
+        +Item(name, price)
+        +ToString() string
+    }
+
+    Program ..> ShoppingList : använder
+    Program ..> Item : skapar
+    ShoppingList "1" o-- "*" Item : innehåller
+```
